@@ -27,3 +27,12 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+tasks.register('startDockerContainer', Exec){
+	description = 'Start Container'
+	group = 'Docker'
+
+	commandLine 'docker', 'start', '5e42853d5bf33830622c15d40c5b2a2b4ee9f571ce8fd9b145b18270c72fa821'
+}
+
+bootJar.dependsOn startDockerContainer
